@@ -1,2 +1,2 @@
-https://lumineskz.github.io/cyrene-countdown
+https://lumineskz.github.io/elysia
 # elysia-countdown
