@@ -1,0 +1,388 @@
+/* === Custom CSS with Enhanced Liquid Glass Realism === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url(Cy.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s ease-in-out;
+}
+
+/* === Countdown & Form Containers (Enhanced Glass) === */
+.countdown-section, .pull-form {
+    position: relative;
+    width: 90%;
+    max-width: 710px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+
+    /* ✨ Clearer glass: more see-through, more depth */
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(4px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        inset 0 0 20px rgba(255, 255, 255, 0.35),
+        0 8px 40px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+    transition: all 0.4s ease;
+}
+
+/* Simulated internal background zoom/refraction */
+.countdown-section::before,
+.pull-form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-attachment: fixed;
+    background-size: 115%;
+    background-position: center;
+    filter: blur(30px) brightness(1.4) contrast(1.1);
+    transform: scale(1.1);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+/* Light reflection sheen */
+.countdown-section::after,
+.pull-form::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0.05) 60%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    mix-blend-mode: screen;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Depth pulse (very gentle scale animation) */
+@keyframes glassDepth {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.012); }
+}
+.countdown-section,
+.pull-form {
+    animation: glassDepth 8s ease-in-out infinite;
+}
+
+/* === Countdown Section Layout === */
+.countdown-section {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.countdown-title {
+    color: white;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+.disc{
+    color: white;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+/* === Timer Cards (More Glossy Glass) === */
+.card {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 10px 10px;
+    color: #3a002f;
+    min-width: 55px;
+    text-align: center;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.25),
+        0 0 15px rgba(255, 192, 203, 0.45);
+    transition: transform 0.25s, background 0.3s ease-in-out;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+.separator {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    padding: 10px 0;
+}
+
+.release-date {
+    margin-top: 15px;
+    color: white;
+}
+
+/* === Falling Images Layer === */
+#falling-image-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.falling-image {
+    position: absolute;
+    top: -100px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-name: fall;
+    filter: 
+        drop-shadow(2px 0 0 rgb(255, 0, 0))
+        drop-shadow(-2px 0 0 rgb(0, 255, 255))
+        blur(1px);
+    transform-style: preserve-3d;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* === Pull Form === */
+.pull-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pull-form input:focus {
+    outline: 2px solid rgb(240, 152, 166);
+    box-shadow: none;
+}
+
+/* === Liquid Glass Pull Button (Upgraded Realism) === */
+.pull-form button {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4a004e;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(22px) saturate(220%);
+    -webkit-backdrop-filter: blur(22px) saturate(220%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        inset 0 0 18px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 182, 193, 0.6),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+}
+
+/* Moving gloss reflection */
+.pull-form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.6) 50%,
+        transparent 100%
+    );
+    opacity: 0.4;
+    transform: translateX(-50%);
+    transition: transform 0.6s ease;
+}
+
+.pull-form button:hover::before {
+    transform: translateX(100%);
+    opacity: 0.7;
+}
+
+.pull-form button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0.1)
+    );
+    box-shadow:
+        inset 0 0 20px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(255, 182, 193, 0.8),
+        0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* === End-State Styles === */
+.countdown-finished {
+    background: url(Elysia.webp);
+    background-size: cover;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* === Responsive Fluid Sizing === */
+:root{
+    --card-font: clamp(1.6rem, 2.5vw, 3.2rem);
+    --sep-font: clamp(1.4rem, 2vw, 3rem);
+    --card-min-w: clamp(44px, 8vw, 80px);
+    --fall-size: 50px;
+    --fall-duration: 6s;
+}
+
+.card{
+    font-size: var(--card-font);
+    min-width: var(--card-min-w);
+    padding: clamp(6px, 1.4vw, 12px);
+}
+
+.separator{
+    font-size: var(--sep-font);
+}
+
+.countdown-section{
+    height: auto;
+    min-height: 260px;
+    padding: clamp(14px, 2.6vw, 32px);
+    gap: clamp(8px, 1.6vw, 20px);
+}
+
+.timer{
+    gap: clamp(4px, 1.2vw, 12px);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pull-form input,
+.pull-form button{
+    font-size: clamp(1rem, 1.6vw, 1.3rem);
+    padding: clamp(12px, 2vw, 18px);
+}
+
+.falling-image{
+    width: var(--fall-size);
+    height: var(--fall-size);
+    animation-duration: var(--fall-duration);
+}
+
+/* Small Screens */
+@media (max-width: 480px){
+    :root{
+        --card-font: 1.6rem;
+        --sep-font: 1.6rem;
+        --card-min-w: 44px;
+        --fall-size: 36px;
+        --fall-duration: 5s;
+    }
+    .countdown-title{
+        font-size: 1.4em;
+        text-align: center;
+
+    }
+
+    .countdown-section, .pull-form{
+        width: 95%;
+        max-width: none;
+        border-radius: 16px;
+        padding: 12px;
+    }
+
+    .pull-form button {
+        font-size: 1.1rem;
+        padding: 14px 18px;
+    }
+
+    .timer { gap: 6px; }
+    .card { font-weight: 700; }
+    .separator { padding: 6px 0; }
+}
+
+/* Medium Screens */
+@media (min-width: 481px) and (max-width: 1024px){
+    :root{
+        --card-font: 2rem;
+        --sep-font: 2rem;
+        --fall-size: 48px;
+        --fall-duration: 5.5s;
+    }
+
+    .countdown-section{ min-height: 300px; }
+    .card{ padding: 8px 10px; }
+    
+}
+
+/* Large Screens */
+@media (min-width: 1025px){
+    :root{
+        --card-font: 3rem;
+        --sep-font: 2.8rem;
+        --card-min-w: 80px;
+        --fall-size: 64px;
+        --fall-duration: 7s;
+    }
+    
+    .countdown-section{ min-height: 320px; max-width: 720px; }
+    .timer{ gap: 12px; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+    .falling-image,
+    .card,
+    .pull-form button,
+    .pull-form input,
+    body {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track the official Cyrene Banner countdown! See the exact days, hours, minutes, and seconds remaining until the November 5, 2025 release.">
+    <title>Elysia Banner Countdown Timer | Official Release Date November 5, 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.webp" type="image/webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'custom-pink': '#ffc0cb', // Card text color
+                    'custom-sep': 'white', // Separator color
+                    'custom-dark-bg': 'rgba(62, 62, 62, 0.718)', // Section background
+                    'custom-card-bg': 'rgba(215, 149, 149, 0.236)', // Card background
+                },
+            }
+        }
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2B1H6N36L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J2B1H6N36L'); 
+    </script>
+    <script src="https://kit.fontawesome.com/5f3c0ac785.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h3 class="disc"><i class="fa-brands fa-discord"></i> <p>.luminesk</p></h3>
+    <div id="falling-image-layer"></div>
+    
+    <div class="countdown-section" id="countdown-section">
+        <h1 class="countdown-title text-3xl font-bold">LOVE ELF BANNER IN</h1>
+        <div class="timer">
+            <span class="days card">00</span> <span class="separator">:</span>
+            <span class="hours card">00</span> <span class="separator">:</span>
+            <span class="minutes card">00</span> <span class="separator">:</span>
+            <span class="seconds card">00</span> 
+        </div>
+        <h2 class="release-date text-lg" id="release-date-text">Nov 5, 2025</h2>
+    </div>
+    
+    <div id="end-message" class="hidden text-center mt-10 p-5">
+        <p class="text-4xl font-black text-white p-4" style="color: #ef113a;">
+            TIME IS NOW!
+        </p>
+        <p class="text-xl mt-2 text-white">Good luck with your pulls!</p>
+    </div>
+
+    <div class="pull-form">
+        <form class="forms" id="pull-form">
+            <button class="pull-button" id="pull-button" type="submit">I'm Pulling!</button> <br>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
